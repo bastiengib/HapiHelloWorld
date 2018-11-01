@@ -6,7 +6,9 @@
   "dependencies": {
     "gulp": "^4.0.0",
     "hapi": "^17.6.0",
-    "lodash": "^4.17.11"
+    "hapi-node-postgres": "^4.1.0",
+    "lodash": "^4.17.11",
+    "pg": "^7.6.0"
   },
   "devDependencies": {},
   "scripts": {
