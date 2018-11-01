@@ -1,0 +1,25 @@
+{
+  "name": "hapihelloworld",
+  "version": "1.0.0",
+  "description": "découvrir hapi",
+  "main": "server.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "hapi": "^17.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastiengib/HapiHelloWorld.git"
+  },
+  "author": "BAstien GIBRAT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bastiengib/HapiHelloWorld/issues"
+  },
+  "homepage": "https://github.com/bastiengib/HapiHelloWorld#readme"
+}
