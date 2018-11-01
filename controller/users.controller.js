@@ -1,4 +1,10 @@
 'use strict';
+const database = require('../key');
+var pg = require('knex')({
+    client: 'pg',
+    connection: database.connectionString
+});
+
 /* 
  * Constructeur
  */
@@ -15,7 +21,8 @@ Users.prototype.getById = function(id) {
 }
 
 Users.prototype.addOne = function(name) {
-    return this.data.push(name);
+    return pg('users').insert({usr_name: name});
+    //return this.data.push(name);
 }
 
 module.exports = new Users();
