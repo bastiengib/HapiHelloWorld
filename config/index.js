@@ -1,5 +1,8 @@
-// concaténation de toute les routes.
+// concaténation de toute les routes
 var about = require('./about.route');
 var users = require('./users.route');
+function IndexRoute(db) {
+    return [].concat(new about(db), new users(db))
+};
 
-module.exports = [].concat(about, users);
+module.exports = (arg1) => {return new IndexRoute(arg1)};

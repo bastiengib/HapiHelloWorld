@@ -1,11 +1,20 @@
 'use strict';
 
 const Hapi = require('hapi');
-const routes = require('./config/index');
+const database = require('./key');
+const pg = require('knex')({
+    client: 'pg',
+    connection: database.connectionString
+});
+const routes = require('./config/index')(pg);
 
 const server = Hapi.server({
     port: 3000,
     host: 'localhost'
+});
+
+server.decorate('request', 'getPg', function () {
+    return pg;
 });
 
 server.route(routes);

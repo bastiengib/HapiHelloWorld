@@ -1,7 +1,9 @@
-var ctrl = require('../controller/users.controller');
-
-module.exports = [
-    { 
+'use strict'
+var UsersCtrl = require('../controller/users.controller');
+function UsersRoute(db) {
+    var ctrl = new UsersCtrl(db);
+    
+    return [{ 
         method: 'GET', 
         path: '/users', 
         handler: function (request, h) {
@@ -10,9 +12,9 @@ module.exports = [
     },
     { 
         method: 'GET', 
-        path: '/users/{name}', 
+        path: '/users/{id}', 
         handler: function (request, h) {
-            return ctrl.getById(encodeURIComponent(request.params.name));
+            return ctrl.getById(encodeURIComponent(request.params.id));
         } 
     },
     { 
@@ -21,5 +23,7 @@ module.exports = [
         handler: function (request, h) {
             return ctrl.addOne(encodeURIComponent(request.payload.user));
         } 
-    }
-];
+    }];
+}
+// on exporte en tant que constructeur pour le paramètre
+module.exports = UsersRoute;
